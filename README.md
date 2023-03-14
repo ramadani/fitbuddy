@@ -1,0 +1,2 @@
+# fitbuddy
+Golang healthy package
