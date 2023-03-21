@@ -5,12 +5,17 @@ Golang healthy package
 ### Installation
 
 ```
-go get github.com/ramadani/andromeda
+go get github.com/ramadani/fitbuddy
 ```
 
 ## Functions
 
 - [x] Get max heart rate
+- [x] Get heart rate zone
+- [ ] Pace Calculator
+- [ ] Pace Converter
+- [ ] Negative Split Calculator
+- [ ] Positive Split Calculator
 
 ## Contributing
 
