@@ -7,27 +7,32 @@ import (
 )
 
 func TestGetMaxHeartRate(t *testing.T) {
-	t.Run("20YearsOld", func(t *testing.T) {
-		year, month, day := time.Now().Date()
-		dob := time.Date(year-20, month, day, 0, 0, 0, 0, time.Local)
-		expected := 200
+	year, month, day := time.Now().Date()
 
-		actual := fitbuddy.GetMaxHeartRate(dob)
+	tests := []struct {
+		name     string
+		dob      time.Time
+		expected int
+	}{
+		{
+			name:     "20YearsOld",
+			dob:      time.Date(year-20, month, day, 0, 0, 0, 0, time.Local),
+			expected: 200,
+		},
+		{
+			name:     "27YearsOld",
+			dob:      time.Date(year-27, month+3, day, 0, 0, 0, 0, time.Local),
+			expected: 194,
+		},
+	}
 
-		if expected != actual {
-			t.Errorf("max heart rate should be %v", expected)
-		}
-	})
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			actual := fitbuddy.GetMaxHeartRate(test.dob)
 
-	t.Run("27YearsOld", func(t *testing.T) {
-		year, month, day := time.Now().Date()
-		dob := time.Date(year-27, month+3, day, 0, 0, 0, 0, time.Local)
-		expected := 194
-
-		actual := fitbuddy.GetMaxHeartRate(dob)
-
-		if expected != actual {
-			t.Errorf("max heart rate should be %v not %v", expected, actual)
-		}
-	})
+			if test.expected != actual {
+				t.Errorf("max heart rate should be %v not %v", test.expected, actual)
+			}
+		})
+	}
 }
