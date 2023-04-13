@@ -1,6 +1,6 @@
 # fitbuddy
 
-Golang healthy package
+Golang sport running package
 
 ### Installation
 
@@ -12,7 +12,7 @@ go get github.com/ramadani/fitbuddy
 
 - [x] Get max heart rate
 - [x] Get heart rate zone
-- [ ] Pace Calculator
+- [x] Pace Calculator
 - [ ] Pace Converter
 - [ ] Negative Split Calculator
 - [ ] Positive Split Calculator
